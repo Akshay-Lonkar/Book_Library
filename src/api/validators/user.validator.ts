@@ -6,6 +6,12 @@ import express from 'express';
 import { body, oneOf, param, query, validationResult } from 'express-validator';
 
 export class UserValidator {
+    static loginWithPassword(request: express.Request<import("express-serve-static-core").ParamsDictionary, any, any, import("qs").ParsedQs, Record<string, any>>, response: express.Response<any, Record<string, any>>): any {
+        throw new Error('Method not implemented.');
+    }
+    static get(request: express.Request<import("express-serve-static-core").ParamsDictionary, any, any, import("qs").ParsedQs, Record<string, any>>, response: express.Response<any, Record<string, any>>): string | PromiseLike<string> {
+        throw new Error('Method not implemented.');
+    }
     static create = async (request: express.Request, response: express.Response): Promise<UserDomainModel> => {
         try {
             await body('Prefix').optional().trim().run(request);

@@ -1,4 +1,5 @@
 export interface UserDetailsDto {
+    RoleId: number;
     id: string;
     Prefix: string;
     FirstName: string;

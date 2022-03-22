@@ -19,6 +19,7 @@ export class DatabaseConnector_Sequelize implements IDatabaseConnector {
             const modelsPath = [
                 __dirname + '/models'
             ];
+            
             const options = {
                 host    : config.host,
                 dialect : dialect,
@@ -31,6 +32,8 @@ export class DatabaseConnector_Sequelize implements IDatabaseConnector {
                 },
                 logging : false, //TODO: Please provide a function here to handle logging...
             };
+           
+            
             const sequelize = new Sequelize(config.database, config.username, config.password, options);
             this._sequelize = sequelize;
 
@@ -105,7 +108,7 @@ export class DatabaseConnector_Sequelize implements IDatabaseConnector {
             return MysqlClient;
         }
         if (flavour === 'PostGreSQL') {
-            return PostgresqlClient;
+            return PostgresqlClient; 
         }
         return PostgresqlClient;
     }

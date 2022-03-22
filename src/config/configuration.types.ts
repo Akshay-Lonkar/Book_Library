@@ -1,5 +1,6 @@
 export type AuthorizationType = 'Custom'; //TBD: Other options need to be supported
 export type AuthenticationType = 'Custom'; //TBD: Other options need to be supported
+
 export type DatabaseType = 'SQL' | 'NoSQL';
 export type DatabaseORM = 'Sequelize' | 'Knex' | 'Mongoose';
 export type DatabaseFlavour = 'MySQL' | 'PostGreSQL' | 'MongoDB';
