@@ -89,10 +89,13 @@ export class ResponseHandler {
         };
 
         if (process.env.NODE_ENV !== 'test') {
+            const logObj = { ...responseObject };
             if (!logDataObject) {
                 responseObject.Data = null;
+                logObj.Data = null;
             }
             Logger.instance().log(JSON.stringify(responseObject, null, 2));
+            Logger.instance().log(JSON.stringify(logObj, null, 2));
         }
 
         ActivityRecorder.record(responseObject);

@@ -2,6 +2,7 @@ import { Authorizer } from '../../auth/authorizer';
 import express from 'express';
 import { UserService } from '../../services/user.service';
 import { Loader } from '../../startup/loader';
+import { ResponseHandler } from 'common/response.handler';
 
 export class UserController {
     //#region member variables and constructors
@@ -30,15 +31,28 @@ export class UserController {
     };
 
     create = async (request: express.Request, response: express.Response) => {
-        const apiResponse = {
-            status : 200,
-            entity : {
+    //     const apiResponse = {
+    //         status : 200,
+    try {
+            const apiResponse = {
                 name : 'akash jadhav',
                 designation : 'soft dev',
+            };
+
+        throw new Error('Calling this endpoint will throw error')
+        // return response.status(apiResponse.status).send(apiResponse);
+        ResponseHandler.success(
+            request,
+            response,
+            'User created',
+            200,
+            {
+                entity : apiResponse,
             },
-        };
-
-        return response.status(apiResponse.status).send(apiResponse);
-
-    };
+            false
+        );
+    }catch(err){
+        ResponseHandler.handleError(request,response,err);
+    }
+  };
 }
